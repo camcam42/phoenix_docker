@@ -22,4 +22,7 @@ if [[ -z `psql -Atqc "\\list $PGDATABASE"` ]]; then
   # mix run priv/repo/seeds.exs
   echo "Database $PGDATABASE created."
 fi
+
+cd assets && npm install && node node_modules/webpack/bin/webpack.js --mode development
+cd .. && mix deps.compile
 mix phx.server
