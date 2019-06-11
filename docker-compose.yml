@@ -18,9 +18,6 @@ services:
   db:
     # We use the predefined Postgres image
     image: postgres
-    environment:
-      # Set user/password for Postgres
-      # Set a path where Postgres should store the data
     ports:
       - "5432:5432"
     restart: always
