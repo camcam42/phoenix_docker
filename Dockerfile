@@ -1,5 +1,5 @@
 # Use an official Elixir runtime as a parent image
-FROM elixir:latest
+FROM elixir:otp-22
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 RUN apt-get update && \
