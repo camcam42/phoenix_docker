@@ -24,5 +24,6 @@ if [[ -z `psql -Atqc "\\list $PGDATABASE"` ]]; then
 fi
 
 cd assets && npm install && node node_modules/webpack/bin/webpack.js --mode development
+pwd
 cd .. && mix deps.compile
 mix phx.server
