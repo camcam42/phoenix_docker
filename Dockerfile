@@ -12,5 +12,7 @@ WORKDIR /app
 
 # Install hex package manager
 RUN mix local.hex --force
-
+RUN mix deps.get
+RUN cd assets && npm install && node node_modules/webpack/bin/webpack.js --mode development
+RUN pwd
 CMD ["/app/entrypoint.sh"]
