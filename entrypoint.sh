@@ -16,14 +16,15 @@ done
 # Create, migrate, and seed database if it doesn't exist.
 if [[ -z `psql -Atqc "\\list $PGDATABASE"` ]]; then
   echo "Database $PGDATABASE does not exist. Creating..."
-  # createdb -E UTF8 $PGDATABASE -l en_US.UTF-8 -T template0
-  mix ecto.create
+  createdb -E UTF8 $PGDATABASE -l en_US.UTF-8 -T template0
+  # mix ecto.create
   # mix ecto.migrate
   # mix run priv/repo/seeds.exs
   echo "Database $PGDATABASE created."
 fi
 
 cd assets && npm install && node node_modules/webpack/bin/webpack.js --mode development
+echo "----------------------------------\n"
 pwd
 cd .. && mix deps.compile
 mix phx.server
