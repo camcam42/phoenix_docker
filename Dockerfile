@@ -3,7 +3,7 @@ FROM elixir:otp-22
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get update && \
-  apt-get install -y postgresql-client nodejs
+  apt-get install -y postgresql-client nodejs apt-utils build-essential inotify-tools
 
 # Create app directory and copy the Elixir projects into it
 RUN mkdir /app
@@ -14,4 +14,4 @@ WORKDIR /app
 RUN mix local.hex --force
 RUN mix deps.get
 RUN cd assets && npm install -f && node node_modules/webpack/bin/webpack.js --mode development
-CMD ["/app/entrypoint.sh"]
+CMD ["/app/entrypoint.sh"]  
