@@ -1,17 +1,11 @@
 # PhoenixDocker
 
-To start your Phoenix server:
+A simple app to demonstrate how Docker can work with Phoenix.
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+To build the image make sure you have Docker and Docker Compose installed, then simply use `docker-compose build`
+To launch the containers use `docker-compose up`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
+## Learn about Phoenix 
 
   * Official website: http://www.phoenixframework.org/
   * Guides: https://hexdocs.pm/phoenix/overview.html
