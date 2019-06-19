@@ -3,7 +3,8 @@
 if [ -f ".env" ]; then
   source ".env"
 else
-  echo "No .env file available in the project. Please build again the image with an .env file"
+  echo "No .env file available in the project. Please build again the image with an .env file in the repository"
+  exit -1
 fi
 
 # Wait until Postgres is ready
