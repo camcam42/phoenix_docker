@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/xavierdelattre/xavierdelattre/_apis/build/status/XavierDelattre.phoenix_docker?branchName=master)](https://dev.azure.com/xavierdelattre/xavierdelattre/_build/latest?definitionId=1&branchName=master)  
+
 # PhoenixDocker
 
 A simple app to demonstrate how Docker can work with Phoenix.
