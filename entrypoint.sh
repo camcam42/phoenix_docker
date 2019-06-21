@@ -24,8 +24,4 @@ if [[ -z `psql -Atqc "\\list $PGDATABASE"` ]]; then
   echo "Database $PGDATABASE created."
 fi
 
-# cd assets && npm install && node node_modules/webpack/bin/webpack.js --mode development
-# echo "----------------------------------\n"
-# pwd
-# cd .. && mix deps.compile
 mix phx.server
