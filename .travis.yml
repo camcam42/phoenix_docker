@@ -1,9 +1,19 @@
 branches:
   only:
-    - master
-services:
+  - master
+build:
+  services:
   - docker
-script:
+  script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t xavierdelattre/phoenix_docker:latest .
   - docker push xavierdelattre/phoenix_docker:latest
+
+deploy:
+  provider: gae
+  keyfile: phoenix-app-4bb1ea8c3d9c.json.enc
+  project: phoenix-app-244815
+before_install:
+- openssl aes-256-cbc -K $encrypted_bdfc680f336c_key -iv $encrypted_bdfc680f336c_iv
+  -in phoenix-app-4bb1ea8c3d9c.json.enc -out ~\/Downloads/phoenix-app-4bb1ea8c3d9c.json
+  -d

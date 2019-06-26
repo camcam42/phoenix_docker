@@ -3,8 +3,7 @@ version: '3'
 
 services:
   phoenix:
-    build:
-      context: .
+    image: xavierdelattre/phoenix_docker:latest
     ports:
       - "4000:4000"
     depends_on:
