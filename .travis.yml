@@ -4,6 +4,6 @@ branches:
 services:
   - docker
 script:
-  - docker-compose build
+  - docker build -t xavierdelattre/phoenix_docker:latest
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push xavierdelattre/phoenix_docker:latest
