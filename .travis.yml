@@ -5,4 +5,5 @@ services:
   - docker
 script:
   - ls -la
+  - pwd
   - docker-compose build
