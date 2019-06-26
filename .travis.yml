@@ -1,9 +1,6 @@
-language: erlang
-
 branches:
   only:
     - master
-
 services:
   - docker
 script:
