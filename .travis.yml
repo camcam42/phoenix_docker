@@ -23,14 +23,13 @@ branches:
 
 jobs:
   include:
-    - stage: Build
+    - stage: Build & Push Image
       services:
         - docker
       script:
-        - docker build -t xavierdelattre/phoenix_docker:latest .
-    - stage: Push build image
-      script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker build -t xavierdelattre/phoenix_docker:latest .
+      after_script:
         - docker push xavierdelattre/phoenix_docker:latest
     - stage: Deploy
       provider: gae
