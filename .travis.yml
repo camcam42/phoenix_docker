@@ -7,4 +7,5 @@ branches:
 services:
   - docker
 script:
+  - ls -la
   - docker-compose build
