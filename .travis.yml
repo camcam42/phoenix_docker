@@ -4,6 +4,5 @@ branches:
 services:
   - docker
 script:
-  - ls -la
-  - pwd
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker-compose build
