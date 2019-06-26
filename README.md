@@ -1,4 +1,4 @@
-[![Build Status](https://dev.azure.com/xavierdelattre/xavierdelattre/_apis/build/status/XavierDelattre.phoenix_docker?branchName=master)](https://dev.azure.com/xavierdelattre/xavierdelattre/_build/latest?definitionId=1&branchName=master)  
+[![Build Status](https://travis-ci.org/XavierDelattre/phoenix_docker.svg?branch=master)](https://travis-ci.org/XavierDelattre/phoenix_docker)
 
 # PhoenixDocker
 
