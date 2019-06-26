@@ -5,4 +5,5 @@ services:
   - docker
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - xavierdelattre/phoenix_docker:latest
   - docker-compose build
