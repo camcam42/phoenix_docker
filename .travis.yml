@@ -1,11 +1,11 @@
 branches:
   only:
   - master
+services:
+  - docker
 jobs:
   include:
   - stage: Build & Push Image
-    services:
-    - docker
     script:
     - pwd && ls -la
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
