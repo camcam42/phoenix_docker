@@ -15,4 +15,5 @@ jobs:
   - stage: Deploy
     script:
     - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf "$HOME/google-cloud-sdk"; curl https://sdk.cloud.google.com; fi
-    - gcloud version
+    - source $HOME/google-cloud-sdk/path.bash.inc
+    - gcloud compute scp docker-compose.yml phoenix-app-244815:~
