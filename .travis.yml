@@ -16,4 +16,5 @@ jobs:
     script:
     - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf "$HOME/google-cloud-sdk"; curl https://sdk.cloud.google.com; fi
     - source $HOME/google-cloud-sdk/path.bash.inc
+    - gcloud auth login
     - gcloud compute scp docker-compose.yml phoenix-app-244815:~
