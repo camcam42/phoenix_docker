@@ -13,7 +13,7 @@ jobs:
     after_script:
     - docker push xavierdelattre/phoenix_docker:latest
   - stage: Deploy
-    before_script:
+    before_install:
     - openssl aes-256-cbc -K $encrypted_bdfc680f336c_key -iv $encrypted_bdfc680f336c_iv -in phoenix-app-77742474ac4b.json.enc -out ../phoenix-app-77742474ac4b.json -d
     script:
     - ls -la
