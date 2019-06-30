@@ -10,16 +10,14 @@ jobs:
   include:
   - stage: Build & Push Image
     script:
-    - pwd
-    - ls -la ..
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - docker build -t xavierdelattre/phoenix_docker:latest .
     after_script:
     - docker push xavierdelattre/phoenix_docker:latest
   - stage: Deploy
     script:
-    - ls -la
     - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf "$HOME/google-cloud-sdk";
       curl https://sdk.cloud.google.com; fi
     - source $HOME/google-cloud-sdk/path.bash.inc
+    - gcloud auth activate-service-account --keyfile=phoenix-app-3faa3b283980.json
     - gcloud compute scp docker-compose.yml phoenix-app-244815:~
