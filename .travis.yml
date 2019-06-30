@@ -2,7 +2,7 @@ branches:
   only:
   - master
 before_install:
-- openssl aes-256-cbc -K $encrypted_bdfc680f336c_key -iv $encrypted_bdfc680f336c_iv -in phoenix-app-3faa3b283980.json.enc -out ../phoenix-app-3faa3b283980.json -d
+  - openssl aes-256-cbc -K $encrypted_bdfc680f336c_key -iv $encrypted_bdfc680f336c_iv -in phoenix-app-3faa3b283980.json.enc -out ../phoenix-app-3faa3b283980.json -d
 services:
 - docker
 jobs:
