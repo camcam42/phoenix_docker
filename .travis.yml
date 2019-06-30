@@ -8,12 +8,12 @@ services:
 - docker
 jobs:
   include:
-  # - stage: Build & Push Image
-  #   script:
-  #   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  #   - docker build -t xavierdelattre/phoenix_docker:latest .
-  #   after_script:
-  #   - docker push xavierdelattre/phoenix_docker:latest
+  - stage: Build & Push Image
+    script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker build -t xavierdelattre/phoenix_docker:latest .
+    after_script:
+    - docker push xavierdelattre/phoenix_docker:latest
   - stage: Deploy
     script:
     - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf "$HOME/google-cloud-sdk";
