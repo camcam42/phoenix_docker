@@ -8,9 +8,9 @@ jobs:
   - stage: Build & Push Image
     script:
     - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-    - docker build -t $DOCKER_IMAGE:latest .
+    - docker build -t $DOCKER_USERNAME/$DOCKER_IMAGE:latest .
     after_script:
-    - docker push $DOCKER_IMAGE:latest
+    - docker push $DOCKER_USERNAME/$DOCKER_IMAGE:latest
   - stage: Deploy
     before_script:
     - openssl aes-256-cbc -K $encrypted_bdfc680f336c_key -iv $encrypted_bdfc680f336c_iv -in deploy_rsa.enc -out /tmp/deploy_rsa -d
@@ -21,5 +21,5 @@ jobs:
     script:
     - rsync -r --quiet $TRAVIS_BUILD_DIR/docker-compose.yml $SSH_USER@$SSH_HOST:/home/$SSH_USER
     - ssh $SSH_USER@$SSH_HOST 'docker-compose stop phoenix'
-    - ssh $SSH_USER@$SSH_HOST 'docker pull $DOCKER_IMAGE:latest' 
+    - ssh $SSH_USER@$SSH_HOST 'docker pull $DOCKER_USERNAME/$DOCKER_IMAGE:latest' 
     - ssh $SSH_USER@$SSH_HOST 'docker-compose up -d --no-deps phoenix'
