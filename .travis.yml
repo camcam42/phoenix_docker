@@ -20,4 +20,6 @@ jobs:
     - ssh-keyscan -H odinduclos.ovh >> ~/.ssh/known_hosts
     script:
     - rsync -r --quiet $TRAVIS_BUILD_DIR/docker-compose.yml xavier@odinduclos.ovh:/home/xavier
-    - ssh xavier@odinduclos.ovh 'docker-compose -f /home/xavier/docker-compose.yml up -d '    
+    - ssh xavier@odinduclos.ovh 'docker-compose -f /home/xavier/docker-compose.yml build phoenix'
+    - ssh xavier@odinduclos.ovh 'docker-compose stop phoenix'
+    - ssh xavier@odindiclos.ovh 'docker-compose -f /home/xavier/docker-compose.yml up -d --no-deps phoenix' 
