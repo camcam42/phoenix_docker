@@ -17,6 +17,6 @@ jobs:
     - eval "$(ssh-agent -s)"
     - chmod 600 /tmp/deploy_rsa
     - ssh-add /tmp/deploy_rsa
-    - ssh -o StrictHostKeyChecking=no -l "$user" "$host"
+    - ssh-keyscan -H odinduclos.ovh >> ~/.ssh/known_hosts
     script:
     - rsync -r --quiet $TRAVIS_BUILD_DIR/docker-compose.yml xavier@odinduclos.ovh:/home/xavier
