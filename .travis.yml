@@ -20,4 +20,6 @@ jobs:
     - ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts
     script:
     - rsync -r --quiet $TRAVIS_BUILD_DIR/docker-compose.yml $SSH_USER@$SSH_HOST:/home/$SSH_USER
-    - ssh $SSH_USER@$SSH_HOST 'docker-compose stop phoenix && docker pull $DOCKER_IMAGE:latest && docker-compose up -d --no-deps phoenix'
+    - ssh $SSH_USER@$SSH_HOST 'docker-compose stop phoenix'
+    - ssh $SSH_USER@$SSH_HOST 'docker pull $DOCKER_IMAGE:latest' 
+    - ssh $SSH_USER@$SSH_HOST 'docker-compose up -d --no-deps phoenix'
