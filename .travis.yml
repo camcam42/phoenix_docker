@@ -21,6 +21,6 @@ jobs:
     script:
     - rsync -r --quiet $TRAVIS_BUILD_DIR/docker-compose.yml $SSH_USER@$SSH_HOST:/home/$SSH_USER
     - ssh $SSH_USER@$SSH_HOST 'docker-compose stop phoenix '
-    - ssh $SSH_USER@$SSH_HOST 'docker rm phoenix && docker rmi $DOCKER_USERNAME/$DOCKER_IMAGE'
+    - ssh $SSH_USER@$SSH_HOST 'docker rm phoenix && docker rmi $DOCKER_USERNAME/$DOCKER_IMAGE:latest'
     - ssh $SSH_USER@$SSH_HOST 'docker pull $DOCKER_USERNAME/$DOCKER_IMAGE:latest' 
     - ssh $SSH_USER@$SSH_HOST 'docker-compose up -d --no-deps phoenix'
